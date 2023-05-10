@@ -13,6 +13,7 @@ Models include + Credits:
 5. KNN - Ahmed Diaa
 
 ## Running the project...
+
 Evaluations:
 1. CNN -> 0.98 accuracy
 2. SVM -> TBD
@@ -20,7 +21,7 @@ Evaluations:
 4. LSTM -> TBD
 5. KNN -> TBD
 
-Categories include:
+Classes include:
 1. Politics
 2. Entertainment
 3. Economy
@@ -33,6 +34,7 @@ Categories include:
 *Make sure the generated x_model.h5 and word2vec.model path is hooked to the classify file.
 
 OLD GUI:
+
 ![image](https://user-images.githubusercontent.com/88057098/235503436-7c7cac22-bd82-432e-b320-97785eb9f316.png)
 
 ![image](https://user-images.githubusercontent.com/88057098/235503401-9babce5d-ca53-48a3-abb9-0f7c7e6e9eb6.png)
