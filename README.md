@@ -12,8 +12,6 @@ Models include + Credits:
 4. LSTM - Ahmed Hossam
 5. KNN - Ahmed Diaa
 
-## Running the project...
-
 Evaluations:
 1. CNN -> 0.98 accuracy
 2. SVM -> TBD
@@ -26,6 +24,8 @@ Classes include:
 2. Entertainment
 3. Economy
 4. Sports
+
+## Running the project...
 
 1. First download the [dataset](https://drive.google.com/drive/folders/1tuUSgPN1fskJso1D9ZSOt7WVWg7dFouv?usp=share_link).
 2. Run the main GUI file after updating paths.
