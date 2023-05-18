@@ -16,7 +16,7 @@ Evaluations:
 1. CNN -> 0.98 accuracy
 2. SVM -> 0.81 accuracy
 3. Decision Tree -> TBD
-4. LSTM -> 0.6 accuracy
+4. LSTM -> 0.62 accuracy
 5. KNN -> TBD
 
 Classes include:
