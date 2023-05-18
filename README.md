@@ -14,7 +14,7 @@ Models include + Credits:
 
 Evaluations:
 1. CNN -> 0.98 accuracy
-2. SVM -> TBD
+2. SVM -> 0.81 accuracy
 3. Decision Tree -> TBD
 4. LSTM -> TBD
 5. KNN -> TBD
