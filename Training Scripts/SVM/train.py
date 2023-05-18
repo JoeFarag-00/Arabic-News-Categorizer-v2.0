@@ -6,8 +6,9 @@ import numpy as np
 import joblib
 from nltk.corpus import stopwords
 from nltk.stem import ISRIStemmer
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.pipeline import Pipeline
 from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
@@ -25,15 +26,15 @@ dataset_folders = {
     "Sports": "Dataset/Train/Sports"
 }
 
-def Tokenize_Categories(text):
+def preprocess(text):
     text = re.sub(r'[^\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF]+', ' ', text)
     tokens = tokenizer.tokenize(text)
     tokens = [token for token in tokens if token not in arabic_stopwords]
     tokens = [stemmer.stem(token) for token in tokens]
-    tokens = [token.translate(str.maketrans("", "", string.punctuation)) for token in tokens]
-    tokens = [token for token in tokens if not token.isdigit()]
-    tokens = [token for token in tokens if token]
-    return " ".join(tokens)
+    text = ' '.join(tokens)
+    text = text.translate(str.maketrans("", "", string.punctuation))
+    text = re.sub(r'\d+', '', text)
+    return text
 
 texts = {}
 for category, folder in dataset_folders.items():
@@ -41,8 +42,8 @@ for category, folder in dataset_folders.items():
     for filename in os.listdir(folder):
         with open(os.path.join(folder, filename), "r", encoding="utf-8") as f:
             text = f.read()
-            tokens = Tokenize_Categories(text)
-            texts[category].append(tokens)
+            text = preprocess(text)
+            texts[category].append(text)
 
 all_texts = []
 all_labels = []
@@ -52,26 +53,26 @@ for category, category_texts in texts.items():
 
 train_texts, test_texts, train_labels, test_labels = train_test_split(all_texts, all_labels, test_size=0.2, random_state=42)
 
-vectorizer = CountVectorizer(tokenizer=Tokenize_Categories)
-train_data = vectorizer.fit_transform(train_texts)
-test_data = vectorizer.transform(test_texts)
+pipeline = Pipeline([
+    ('tfidf', TfidfVectorizer(tokenizer=preprocess)),
+    ('svm', SVC(class_weight='balanced'))
+])
 
-label_to_index = {label: index for index, label in enumerate(set(all_labels))}
-train_labels = [label_to_index[label] for label in train_labels]
-test_labels = [label_to_index[label] for label in test_labels]
-
-svm_params = {
-    "C": 1.0,
-    "kernel": "rbf",
-    "class_weight": "balanced"
+param_grid = {
+    'tfidf__max_features': [1000, 5000, 10000],
+    'svm__C': [0.1, 1, 10],
+    'svm__kernel': ['linear', 'rbf']
 }
 
-svm_model = SVC(**svm_params)
-svm_model.fit(train_data, train_labels)
+grid = GridSearchCV(pipeline, param_grid, cv=3)
+grid.fit(train_texts, train_labels)
 
-test_predictions = svm_model.predict(test_data)
+best_pipeline = grid.best_estimator_
+joblib.dump(best_pipeline.named_steps['tfidf'], "Models/tfidf_vectorizer.pkl")
+joblib.dump(best_pipeline.named_steps['svm'], "Models/svm_model.pkl")
 
-joblib.dump(svm_model, "Models/svm_model.pkl")
+test_predictions = best_pipeline.predict(test_texts)
+
 print("Test accuracy:", accuracy_score(test_labels, test_predictions))
 print("Test precision:", precision_score(test_labels, test_predictions, average="macro"))
 print("Test recall:", recall_score(test_labels, test_predictions, average="macro"))
