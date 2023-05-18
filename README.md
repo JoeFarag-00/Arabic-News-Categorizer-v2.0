@@ -35,7 +35,9 @@ Classes include:
 
 OLD GUI:
 
-![image](https://user-images.githubusercontent.com/88057098/235503436-7c7cac22-bd82-432e-b320-97785eb9f316.png)
+![SVM](https://github.com/JoeFarag-00/Arabic-News-Categorizer-v2.0/assets/88057098/7d54160f-b860-4f9a-96ad-fea38009f7a7)
+
+![CNN](https://user-images.githubusercontent.com/88057098/235503436-7c7cac22-bd82-432e-b320-97785eb9f316.png)
 
 ![image](https://user-images.githubusercontent.com/88057098/235503401-9babce5d-ca53-48a3-abb9-0f7c7e6e9eb6.png)
 
