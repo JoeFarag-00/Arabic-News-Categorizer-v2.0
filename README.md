@@ -17,7 +17,7 @@ Evaluations:
 2. SVM -> 0.81 accuracy
 3. Decision Tree -> 0.93 accuracy
 4. LSTM -> 0.91 accuracy
-5. KNN -> TBD
+5. KNN -> 0.94
 
 Classes include:
 1. Politics
