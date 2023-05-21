@@ -42,3 +42,9 @@ OLD GUI:
 ![image](https://user-images.githubusercontent.com/88057098/235503401-9babce5d-ca53-48a3-abb9-0f7c7e6e9eb6.png)
 
 New GUI TBD:
+
+![image](https://github.com/JoeFarag-00/Arabic-News-Categorizer-v2.0/assets/88057098/8a38187d-98e8-4c2d-b88a-f77378d0c484)
+
+![image](https://github.com/JoeFarag-00/Arabic-News-Categorizer-v2.0/assets/88057098/5c32cb06-84dc-4a9e-8531-96190d9372d1)
+
+![image](https://github.com/JoeFarag-00/Arabic-News-Categorizer-v2.0/assets/88057098/39b093fc-8811-4469-abc1-d70cfa32d13b)
