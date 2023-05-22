@@ -121,6 +121,10 @@ class MainGUI():
                 result_label.place(x=Main.winfo_screenwidth()/2 - 120,y=Main.winfo_screenheight()/2 - 200, anchor="center")
             predict_KNN()
         
+        if Selected == 6:
+           
+           pass
+        
                 
     def copy():
         Main.clipboard_append(Input_Textbox.selection_get())
