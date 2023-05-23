@@ -8,16 +8,20 @@
 Models include + Credits:
 1. CNN - Youssef Farag
 2. SVM - Youssef Farag
-3. Decision Tree - Mohab Abdulatif
-4. LSTM - Ahmed Hossam
-5. KNN - Ahmed Diaa
+3. HAN - Youssef Farag
+4. KNN - Youssef Farag
+5. Decision Tree - Mohab Abdulatif
+6. LSTM - Ahmed Hossam
+7. KNN - Ahmed Diaa
 
 Evaluations:
 1. CNN -> 0.98 accuracy
 2. SVM -> 0.81 accuracy
-3. Decision Tree -> 0.93 accuracy
-4. LSTM -> 0.91 accuracy
-5. KNN -> 0.94
+3. HAN -> 0.92 accuracy
+4. KNN -> 0.98 accuracy
+5. Decision Tree -> 0.93 accuracy
+6. LSTM -> 0.91 accuracy
+7. KNN -> 0.94 accuracy
 
 Classes include:
 1. Politics
